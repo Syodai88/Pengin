@@ -51,11 +51,6 @@ const AddModal=({setMenus,menus})=> {
           })
           console.log(result.data);
           setMenus([...menus,result.data]);
-          inputMenuName("");
-          inputDetail("");
-          inputWeight("");
-          setPart("胸");
-          setJoint("多関節");
           handleClose();
       }
   }  
