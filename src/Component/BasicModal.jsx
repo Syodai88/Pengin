@@ -58,7 +58,7 @@ const BasicModal=({menuName,part,joint,weight,detail,index,menus,setMenus,id})=>
   const handleMenuDelete=async()=>{
     const result=await axios.delete(baseURL+"/menus/"+id);
     console.log(result.data);
-    const newMenus=[...menus];
+    const newMenus= await [...menus];
     setMenus(
       newMenus.filter(menu=>menu.id!==id)
     )

@@ -49,8 +49,9 @@ const AddModal=({setMenus,menus})=> {
               isJoint:joint==="多関節",
               link:detail
           })
+          const data = result.data
           console.log(result.data);
-          setMenus([...menus,result.data]);
+          setMenus([...menus,data]);
           handleClose();
       }
   }  
