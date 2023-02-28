@@ -50,7 +50,9 @@ function BasicCard({id,name,target,weight,isJoint,link,menus,setMenus,daily,setD
             {weight} kg
             <br />
           </Typography>
-          <Button size="small">Learn More</Button>
+          {
+              link===""? <Button disabled={true}></Button>: <Button size="small" href={link}>Learn More</Button>
+          }
           <AddDailyModal id={id} name={name} weight={weight} daily={daily} setDaily={setDaily}/>
 
         </CardContent>
@@ -197,9 +199,11 @@ const ComponentB = () => {
                             <MenuItem value={"単関節"}>単関節</MenuItem>
                             </Select>
                         </FormControl>
-                        <Button variant="contained" color="primary" onClick={handleSearch}>
-                            <SearchIcon />
-                        </Button>
+                        <Grid alignItems="center" justifyContent="center" display="inline-block" sx={{verticalAlign:"middle",margin:"inherit"}}> 
+                            <Button variant="contained" color="primary" onClick={handleSearch} sx={{alignItems:"center"}}>
+                                <SearchIcon />
+                            </Button>
+                        </Grid>
                     </Grid>
                     {
                         display.map(menu => {

@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import axios from 'axios';
+import { Grid } from '@mui/material';
 const baseURL="https://27.133.154.129/api/v1";
 
 const style = {
@@ -66,7 +67,9 @@ const BasicModal=({menuName,part,joint,weight,detail,index,menus,setMenus,id})=>
 
   return (
     <div>
-      <Button onClick={handleOpen} variant="outlined">編集</Button>
+      <Grid item direction="row" alignItems="center" justifyContent="center">
+        <Button onClick={handleOpen} variant="outlined">編集</Button>
+      </Grid>
       <Modal
         open={open}
         onClose={handleClose}

@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import axios from 'axios';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 const baseURL="https://27.133.154.129/api/v1";
 const style = {
@@ -25,7 +26,7 @@ const AddDailyModal=({id,name,target,weight,isJoint,link,menus,setMenus,daily,se
   const handleClose = () => setOpen(false);
   const [menuName,inputMenuName]=useState(name);
   const [menuWeight,inputMenuWeight]=useState(weight);
-  const [count,setCount]=useState(0);
+  const [count,setCount]=useState(10);
   const handleAddDailyMenu=async()=>{
       if(weight===""){
           alert("重量を入力してください");
@@ -54,7 +55,12 @@ const AddDailyModal=({id,name,target,weight,isJoint,link,menus,setMenus,daily,se
 
   return (
     <div>
-      <Button onClick={handleOpen} variant="outlined">今日のメニューに追加</Button>
+      <Button onClick={handleOpen} variant="outlined" >
+          <TaskAltIcon fontSize="large" />
+          <Typography variant="h6" component="div" >
+              今日のメニューに追加
+          </Typography>
+        </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -73,6 +79,7 @@ const AddDailyModal=({id,name,target,weight,isJoint,link,menus,setMenus,daily,se
                         name="reWeight"
                         step="0.5"
                         min="0" 
+                        style={{width:"50px"}}
                         value={menuWeight}
                         onChange={(e)=>{inputMenuWeight(e.target.value)}}
                     /> kg
@@ -82,6 +89,7 @@ const AddDailyModal=({id,name,target,weight,isJoint,link,menus,setMenus,daily,se
                         name="reWeight"
                         step="1"
                         min="0" 
+                        style={{width:"50px"}}
                         value={count}
                         onChange={(e)=>{setCount(e.target.value)}}
                     /> 回

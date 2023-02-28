@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import axios from 'axios';
+import CreateIcon from '@mui/icons-material/Create';
+import CheckIcon from '@mui/icons-material/Check';
 
 const baseURL="https://27.133.154.129/api/v1";
 const style = {
@@ -60,7 +62,12 @@ const AddModal=({setMenus,menus})=> {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant="outlined">追加</Button>
+      <Button variant="contained" onClick={handleOpen}>
+          <CreateIcon />
+            <Typography variant="h6" >
+                新規メニュー
+            </Typography>
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -111,19 +118,25 @@ const AddModal=({setMenus,menus})=> {
                         name="reWeight"
                         step="0.5"
                         min="0" 
+                        placeholder='50'
+                        style={{width:"50px"}}
                         value={weight}
                         onChange={(e)=>{inputWeight(e.target.value)}}
                     /> kg
                 <br/>
-                詳細：<input 
+                詳細リンク：<input 
                         type="text" 
                         name="reDetail" 
+                        placeholder='https://PenguinHack'
                         value={detail}
                         onChange={(e)=>{inputDetail(e.target.value)}}
                     />
                     <br/>
           </Typography>
-          <Button onClick={handleAddMenu}variant="outlined">完了</Button>
+          <Button onClick={handleAddMenu}variant="contained" color='success'>
+              <CheckIcon color="inherit"/>
+
+          </Button>
         </Box>
       </Modal>
     </div>

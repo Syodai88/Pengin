@@ -14,6 +14,7 @@ import axios from 'axios';
 import { spacing } from '@mui/system';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import UndoIcon from '@mui/icons-material/Undo';
 const baseURL="https://27.133.154.129/api/v1";
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -43,8 +44,11 @@ export default function BasicTable() {
         <Typography variant="h1" sx={{m:3}}>
             筋トレ記録
         </Typography>
-        <Button onClick={() => navigate('/componentb')}>
-            ホームに戻る
+        <Button onClick={() => navigate('/componentb')} fontSize="large" variant='contained'>
+            <UndoIcon fontSize="large" />
+            <Typography variant="h6" >
+                トップに戻る
+            </Typography>
         </Button>
         {
             daiary.map((item,index)=>{
