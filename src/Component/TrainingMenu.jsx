@@ -114,7 +114,7 @@ const TrainingMenu=()=>{
                 
             </Button>
 
-            <Grid direction="row" alignItems="center" justifyContent="center" sx={{m:2}}>
+            <Grid alignItems="center" justifyContent="center" sx={{m:2}}>
                         <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
                             <InputLabel id="demo-simple-select-standard-label">部位</InputLabel>
                             <Select

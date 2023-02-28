@@ -58,16 +58,15 @@ const BasicModal=({menuName,part,joint,weight,detail,index,menus,setMenus,id})=>
   const handleMenuDelete=async()=>{
     const result=await axios.delete(baseURL+"/menus/"+id);
     console.log(result.data);
-    const newMenus= await [...menus];
     setMenus(
-      newMenus.filter(menu=>menu.id!==id)
+      menus.filter(menu=>menu.id!==id)
     )
     handleClose();
   }
 
   return (
     <div>
-      <Grid item direction="row" alignItems="center" justifyContent="center">
+      <Grid alignItems="center" justifyContent="center">
         <Button onClick={handleOpen} variant="outlined">編集</Button>
       </Grid>
       <Modal
